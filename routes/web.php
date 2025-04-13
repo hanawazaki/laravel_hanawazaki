@@ -16,6 +16,7 @@ Route::get('/dashboard', function () {
 Route::middleware('auth')->group(function () {
     Route::resource('hospitals', HospitalController::class);
     Route::resource('patients', PatientController::class);
+    Route::get('patients-filter', [PatientController::class, 'filter'])->name('patients.filter');
 });
 
 Route::middleware('auth')->group(function () {

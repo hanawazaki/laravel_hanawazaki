@@ -108,4 +108,33 @@ class PatientController extends Controller
                 ->with('error', 'Failed to delete patient: ' . $e->getMessage());
         }
     }
+
+    public function filter(Request $request)
+    {
+        try {
+
+            $query = Patient::with('hospital');
+
+            if ($request->filled('hospital_id')) {
+                $query->where('hospital_id', $request->hospital_id);
+            }
+
+            $patients = $query->latest()->paginate(10);
+
+            if ($request->ajax()) {
+                return view('patients.table', compact('patients'))->render();
+            }
+
+            $hospitals = Hospital::orderBy('nama_rumah_sakit')->get();
+            return view('patients.index', compact('patients', 'hospitals'));
+        } catch (\Exception $e) {
+            \Log::error('Filter error: ' . $e->getMessage());
+
+            if ($request->ajax()) {
+                return response()->json(['error' => $e->getMessage()], 500);
+            }
+
+            return back()->with('error', 'Error: ' . $e->getMessage());
+        }
+    }
 }

@@ -72,10 +72,11 @@
                 @endforelse
               </tbody>
             </table>
+            <div class="flex justify-center mt-3">
+              {{ $hospitals->links() }}
+            </div>
           </div>
-          <div class="d-flex justify-content-center mt-3">
-            {{ $hospitals->links() }}
-          </div>
+
         </div>
       </div>
     </div>
