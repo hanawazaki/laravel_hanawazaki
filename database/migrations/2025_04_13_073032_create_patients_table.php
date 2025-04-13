@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('address');
             $table->string('phone_number');
             $table->foreignId('hospital_id')->constrained('hospitals')->onDelete('cascade');
-            $table->softDeletes();
             $table->timestamps();
         });
     }

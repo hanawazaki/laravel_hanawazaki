@@ -16,19 +16,19 @@ class HospitalTableSeeder extends Seeder
         $hospitals = [
             [
                 'name' => 'Rumah Sakit Al-Islam',
-                'address' => '123 Main St, Springfield',
+                'address' => 'Jalan ABC no. 123',
                 'email' => 'rsais@mail.com',
                 'phone_number' => '123-456-7890',
             ],
             [
                 'name' => 'Rumah Sakit Al-Ihsan',
-                'address' => '456 Elm St, Springfield',
+                'address' => 'Jalan XYZ no. 789',
                 'email' => 'rsaih@mail.com',
                 'phone_number' => '123-456-7890',
             ],
             [
                 'name' => 'Rumah Sakit Al-Falah',
-                'address' => '789 Oak St, Springfield',
+                'address' => 'Jalan JKL no. 999',
                 'email' => 'rsaf@mail.com',
                 'phone_number' => '123-456-7890',
             ]
